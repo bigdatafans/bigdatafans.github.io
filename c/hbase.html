@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="hbase:HBase 开源的非关系型分布式列式数据库(NoSQL) - 大数据组件大全，内容包含数据采集、统计计算、数据存储、运维等组件速查手册。">
+    <meta name="keywords" content="Hadoop,HBase,组件大全,大数据组件手册,hbase,HBase 开源的非关系型分布式列式数据库(NoSQL)">
+    <title>hbase 组件，大数据 hbase 组件详解：HBase 开源的非关系型分布式列式数据库(NoSQL) -  大数据组件搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1546095164203">
+</head>
+<body>
+<div class="header header_list">
+    <div class="logo">
+        <a href="/"><img src=../img/bigdata.png height="38">
+        </a>
+    </div>
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="大数据组件搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/hbase.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+<a target="_blank" href="https://github.com/hivefans/bigdata-module/edit/master/command/hbase.md">纠正错误</a> 
+<span class="split"></span>
+<a target="_blank" href="https://github.com/hivefans/bigdata-module/edit/master/command/hbase.md">添加实例</a>
+</span>
+
+<h1 id="hbase">hbase</h1><p>HBase 开源的非关系型分布式列式数据库(NoSQL)</p>
+<h2 id="补充说明">补充说明</h2><p><strong>HBase</strong> HBase是一个开源的非关系型分布式数据库（NoSQL），它参考了谷歌的BigTable建模，实现的编程语言为 Java。它是Apache软件基金会的Hadoop项目的一部分，运行于HDFS文件系统之上，为 Hadoop </p>
+<p>提供类似于BigTable 规模的服务。因此，它可以容错地存储海量稀疏的数据。</p>
+<p>HBase在列上实现了BigTable论文提到的压缩算法、内存操作和布隆过滤器。HBase的表能够作为MapReduce任务的输入和输出，可以通过Java API来访问数据，也可以通过REST、Avro或者Thrift的API来访问。</p>
+<p>虽然最近性能有了显著的提升，HBase 还不能直接取代SQL数据库。如今，它已经应用于多个数据驱动型网站，包括 Facebook的消息平台。</p>
+<p>在 Eric Brewer的CAP理论中，HBase属于CP类型的系统。</p>
+<ol>
+<li><p>特性</p>
+<ul>
+<li><p>海量存储：单表可以存储百亿级别的量级，不用担心读取的性能下降。</p>
+</li>
+<li><p>面向列：数据在表中是按某列的数据聚集存储，数据即索引，只访问查询涉及的列时，可以大量降低系统的I/O</p>
+</li>
+<li><p>稀疏性：传统行数存储的数据存在大量NULL的列，需要占用存储空间，造成存储空间的浪费，而HBase为空的列并不占用空间，因此表可以设计的很稀疏</p>
+</li>
+<li><p>扩展性：HBase底层基于HDFS，支持扩展，并且可以随时添加或者减少节点。</p>
+</li>
+<li><p>高可靠：基于zookeeper的协调服务，能够保证服务的高可用行。HBase使用WAL和replication机制，前者保证数据写入时不会因为集群异常而导致写入数据的丢失，后者保证集群出现严重问题时，数据不会发生丢失和损坏。</p>
+</li>
+<li><p>高性能：底层的LSM数据结构，使得HBase具备非常高的写入性能。RowKey有序排列、主键索引和缓存机制使得HBase具备一定的随机读写性能。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="历史">历史</h3><pre><code>Apache HBase最初是Powerset公司为了处理自然语言搜索产生的海量数据而开展的项目。不过现在它已经是Apache基金会的顶级项目，并且引起了广泛的关注。
+
+Facebook在2010年11月选用了HBase来实现它新的消息平台
+</code></pre><h3 id="官方主页">官方主页</h3><pre><code>http://hbase.apache.org/
+</code></pre>
+</div>
+
+<div class="footer ">
+  收藏本站请使用Ctrl+D或者Command+d
+  <br />
+  <a target="_blank" href="https://github.com/hivefans/bigdata-module/new/master/command">添加组件</a> |
+  <a href="../hot.html">组件列表</a> |
+  <br> 共搜集到
+  <span id="commands_info">
+    8
+  </span> 个大数据组件
+</div>
+<script type="text/javascript" src="../js/dt.js?v=1546095164203"></script>
+<script type="text/javascript" src="../js/index.js?v=1546095164203"></script>
+</body>
+</html>
