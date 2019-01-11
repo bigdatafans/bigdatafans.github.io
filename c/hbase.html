@@ -10,7 +10,7 @@
     <meta name="keywords" content="Hadoop,HBase,组件大全,大数据组件手册,hbase,HBase 开源的非关系型分布式列式数据库(NoSQL)">
     <title>hbase 组件，大数据 hbase 组件详解：HBase 开源的非关系型分布式列式数据库(NoSQL) -  大数据组件搜索引擎</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1547219511612">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1547219670989">
 </head>
 <body>
 <div class="header header_list">
@@ -63,8 +63,8 @@
 </li>
 </ol>
 <h3 id="架构图">架构图</h3><p><img src="../img/HBaseArchitecture.png" alt="架构图"></p>
-<p><strong>HMaster</strong>
-HMaster没有单点故障问题，可以启动多个HMaster，通过ZooKeeper的Master Election机制保证同时只有一个HMaster出于Active状态，其他的HMaster则处于热备份状态。一般情况下会启动两个HMaster，非Active的HMaster会定期的和Active HMaster通信以获取其最新状态，从而保证它是实时更新的，因而如果启动了多个HMaster反而增加了Active HMaster的负担。</p>
+<p><strong>HMaster</strong></p>
+<p>HMaster没有单点故障问题，可以启动多个HMaster，通过ZooKeeper的Master Election机制保证同时只有一个HMaster出于Active状态，其他的HMaster则处于热备份状态。一般情况下会启动两个HMaster，非Active的HMaster会定期的和Active HMaster通信以获取其最新状态，从而保证它是实时更新的，因而如果启动了多个HMaster反而增加了Active HMaster的负担。</p>
 <p>它主要有两方面的职责：</p>
 <ol>
 <li>协调HRegionServer
@@ -73,8 +73,8 @@ HMaster没有单点故障问题，可以启动多个HMaster，通过ZooKeeper的
 <li>Admin职能
 创建、删除、修改Table的定义。</li>
 </ol>
-<p><strong>HRegion</strong>
-HBase使用RowKey将表水平切割成多个HRegion，从HMaster的角度，每个HRegion都纪录了它的StartKey和EndKey（第一个HRegion的StartKey为空，最后一个HRegion的EndKey为空），由于RowKey是排序的，因而Client可以通过HMaster快速的定位每个RowKey在哪个HRegion中。HRegion由HMaster分配到相应的HRegionServer中，然后由HRegionServer负责HRegion的启动和管理，和Client的通信，负责数据的读(使用HDFS)。</p>
+<p><strong>HRegion</strong></p>
+<p>HBase使用RowKey将表水平切割成多个HRegion，从HMaster的角度，每个HRegion都纪录了它的StartKey和EndKey（第一个HRegion的StartKey为空，最后一个HRegion的EndKey为空），由于RowKey是排序的，因而Client可以通过HMaster快速的定位每个RowKey在哪个HRegion中。HRegion由HMaster分配到相应的HRegionServer中，然后由HRegionServer负责HRegion的启动和管理，和Client的通信，负责数据的读(使用HDFS)。</p>
 <h3 id="历史">历史</h3><pre><code>Apache HBase最初是Powerset公司为了处理自然语言搜索产生的海量数据而开展的项目。不过现在它已经是Apache基金会的顶级项目，并且引起了广泛的关注。
 
 Facebook在2010年11月选用了HBase来实现它新的消息平台
