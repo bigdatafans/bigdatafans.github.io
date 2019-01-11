@@ -10,7 +10,7 @@
     <meta name="keywords" content="Hadoop,HBase,组件大全,大数据组件手册,hive,Hive 是一个基于Hadoop的开源数据仓库工具.">
     <title>hive 组件，大数据 hive 组件详解：Hive 是一个基于Hadoop的开源数据仓库工具. -  大数据组件搜索引擎</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1547221579550">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1547221697864">
 </head>
 <body>
 <div class="header header_list">
@@ -51,6 +51,12 @@
 <p>2.由于Hive自动生成MapReduce 作业， HQL 调优困难；  </p>
 <p>3.粒度较粗，可控性差  </p>
 <h3 id="架构">架构</h3><p><img src="../img/hive.png" alt="hive架构"></p>
+<p><strong>用户接口</strong></p>
+<p>用户接口主要有三个：CLI，Client 和 WUI。其中最常用的是 CLI，Cli 启动的时候，会同时启动一个 Hive 副本。Client 是 Hive 的客户端，用户连接至 Hive Server。在启动 Client 模式的时候，需要指出 Hive Server 所在节点，并且在该节点启动 Hive Server。 WUI 是通过浏览器访问 Hive。</p>
+<p><strong>元数据存储</strong></p>
+<p>Hive 将元数据存储在数据库中，如 mysql、derby。Hive 中的元数据包括表的名字，表的列和分区及其属性，表的属性（是否为外部表等），表的数据所在目录等。</p>
+<p><strong>解释器、编译器、优化器、执行器</strong></p>
+<p>解释器、编译器、优化器完成 HQL 查询语句从词法分析、语法分析、编译、优化以及查询计划的生成。生成的查询计划存储在 HDFS 中，并在随后由 MapReduce 调用执行。</p>
 <h3 id="历史">历史</h3><pre><code>由FaceBook 2008年把hive项目贡献给Apache
 </code></pre><h3 id="官方主页">官方主页</h3><blockquote>
 <p><a href="https://hive.apache.org/">https://hive.apache.org/</a></p>
