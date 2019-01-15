@@ -10,7 +10,7 @@
     <meta name="keywords" content="Hadoop,HBase,组件大全,大数据组件手册,hbase,HBase 开源的非关系型分布式列式数据库(NoSQL)">
     <title>hbase 组件，大数据 hbase 组件详解：HBase 开源的非关系型分布式列式数据库(NoSQL) -  大数据组件搜索引擎</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1547566257340">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1547566382346">
 </head>
 <body>
 <div class="header header_list">
@@ -62,7 +62,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="架构图">架构图</h3><p><img src="../img/HBaseArchitecture.png" alt="架构图"></p>
+<h3 id="架构图">架构图</h3><p><img src="../img/hbase.png" alt="架构图"></p>
 <p><strong>HMaster</strong></p>
 <p>HMaster没有单点故障问题，可以启动多个HMaster，通过ZooKeeper的Master Election机制保证同时只有一个HMaster出于Active状态，其他的HMaster则处于热备份状态。一般情况下会启动两个HMaster，非Active的HMaster会定期的和Active HMaster通信以获取其最新状态，从而保证它是实时更新的，因而如果启动了多个HMaster反而增加了Active HMaster的负担。</p>
 <p>它主要有两方面的职责：</p>
